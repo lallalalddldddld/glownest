@@ -1,0 +1,10 @@
+function save(){localStorage.setItem('glownest-cart',JSON.stringify(state.cart));localStorage.setItem('glownest-wishlist',JSON.stringify(state.wishlist));updateCounts()}
+function updateCounts(){
+  const count = Object.values(state.cart).reduce((a,b)=>a+b,0); $('#cart-count').textContent=count; $('#wishlist-count').textContent=state.wishlist.length;
+}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2400)}
+function addToCart(id,qty=1){state.cart[id]=(state.cart[id]||0)+qty;save();toast('Toegevoegd aan je winkelwagen')}
+function toggleWish(id){state.wishlist=state.wishlist.includes(id)?state.wishlist.filter(x=>x!==id):[...state.wishlist,id];save();render();toast(state.wishlist.includes(id)?'Toegevoegd aan favorieten':'Verwijderd uit favorieten')}
+function stars(r){return '★'.repeat(Math.round(r))}
+function productCard(p){return `<article class="product-card"><div class="product-media"><a href="/product/${p.id}" data-link aria-label="Bekijk ${p.name}"><img src="${p.image}" alt="${p.name}" loading="lazy"></a><button class="heart ${state.wishlist.includes(p.id)?'active':''}" data-wish="${p.id}" aria-label="${state.wishlist.includes(p.id)?'Verwijder uit':'Voeg toe aan'} favorieten">♡</button><button class="quick-add" data-add="${p.id}" aria-label="Voeg ${p.name} toe aan winkelwagen">+</button></div><div class="product-info"><span class="product-category">${categories[p.category].name}</span><a href="/product/${p.id}" data-link><div class="product-title">${p.name}</div></a><div class="product-desc">${p.short}</div><div class="product-meta"><span class="price">${money.format(p.price)}</span><span class="rating">★ ${p.rating} (${p.reviews})</span></div></div></article>`}
+function categoryCard(slug){const c=categories[slug];return `<a class="category-card" href="/category/${slug}" data-link><img src="${c.image}" alt="${c.name}" loading="lazy"><span>${c.name}</span></a>`}
