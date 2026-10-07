@@ -1,43 +1,55 @@
-function home(){const bestsellers=['glow-table-lamp','zen-vase','cozy-plaid','warmth-candle'].map(id=>products.find(p=>p.id===id)).filter(Boolean);return \`
+function home(){const bestsellers=['glow-table-lamp','zen-vase','cozy-plaid','warmth-candle'].map(id=>products.find(p=>p.id===id)).filter(Boolean);return `
 <section class="home-hero">
   <div class="shell home-hero-inner">
     <div class="home-hero-copy">
-      <span class="eyebrow">Sfeervol wonen begint bij GlowNest</span>
+      <span class="eyebrow">SFEERVOL WONEN BEGINT BIJ GLOWNEST</span>
       <h1>Maak van je huis <span>jouw warme nest</span></h1>
-      <p>Sfeervolle verlichting, stijlvolle decoratie en comfort die bij jou past.</p>
-      <a class="btn btn-accent home-hero-cta" href="/search?q=popular" data-link>Ontdek de collectie <span aria-hidden="true">→</span></a>
+      <p>Sfeervolle verlichting, stijlvolle decoratie en<br>comfort die bij jou past.</p>
+      <a class="home-hero-cta" href="/search?q=popular" data-link>Ontdek de collectie <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
-<section class="benefits home-benefits">
-  <div class="shell benefit-grid">
-    <div class="benefit"><span class="benefit-icon" aria-hidden="true">🚚</span><div><strong>Gratis verzending</strong><span>vanaf €49,95</span></div></div>
-    <div class="benefit"><span class="benefit-icon" aria-hidden="true">↶</span><div><strong>30 dagen bedenktijd</strong><span>niet tevreden, geld terug</span></div></div>
-    <div class="benefit"><span class="benefit-icon" aria-hidden="true">♢</span><div><strong>Veilig betalen</strong><span>iDEAL, Klarna & meer</span></div></div>
-    <div class="benefit"><span class="benefit-icon" aria-hidden="true">◖◗</span><div><strong>Persoonlijke service</strong><span>we helpen je graag</span></div></div>
+
+<section class="home-benefits">
+  <div class="shell home-benefit-grid">
+    <div class="home-benefit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM3 10H1M3 13H0"/></svg>
+      <div><strong>Gratis verzending</strong><span>vanaf €49,95</span></div>
+    </div>
+    <div class="home-benefit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8H2v-3M2 8a9 9 0 1 1 2 8M2 8l4-4"/></svg>
+      <div><strong>30 dagen bedenktijd</strong><span>niet tevreden, geld terug</span></div>
+    </div>
+    <div class="home-benefit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 20 5v6c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V5zM8 12l2.5 2.5L16 9"/></svg>
+      <div><strong>Veilig betalen</strong><span>iDEAL, Klarna & meer</span></div>
+    </div>
+    <div class="home-benefit">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 13H2v5h4v-5H4Zm16 0h2v5h-4v-5h2ZM18 18c0 2-2 3-5 3"/></svg>
+      <div><strong>Persoonlijke service</strong><span>we helpen je graag</span></div>
+    </div>
   </div>
 </section>
-<section class="home-section">
+
+<section class="home-categories">
   <div class="shell">
-    <div class="home-section-head">
-      <h2>Shop je ruimte</h2>
-      <a class="home-view-all" href="/search" data-link>Bekijk alle categorieën <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="category-grid home-category-grid">\${Object.keys(categories).map(categoryCard).join('')}</div>
+    <div class="home-section-title"><h2>Shop je ruimte</h2><a href="/search" data-link>Bekijk alle categorieën <span aria-hidden="true">→</span></a></div>
+    <div class="home-category-grid">${Object.keys(categories).map(categoryCard).join('')}</div>
   </div>
 </section>
-<section class="home-section home-showcase-section" id="reviews">
-  <div class="shell home-showcase">
+
+<section class="home-showcase">
+  <div class="shell home-showcase-grid">
     <div class="home-bestsellers">
-      <div class="home-section-head"><h2>Bestsellers</h2><a class="home-view-all" href="/search?q=popular" data-link>Bekijk alles <span aria-hidden="true">→</span></a></div>
-      <div class="product-grid home-product-grid">\${bestsellers.map(productCard).join('')}</div>
+      <div class="home-section-title"><h2>Bestsellers</h2></div>
+      <div class="home-product-grid">${bestsellers.map(homeProductCard).join('')}</div>
     </div>
     <div class="home-reviews">
-      <div class="home-section-head"><h2>Wat klanten zeggen</h2><a class="home-view-all" href="/about" data-link>Alle reviews <span aria-hidden="true">→</span></a></div>
-      <div class="review-grid home-review-grid">\${reviews.map(r=>\`<article class="review-card"><div class="stars">\${stars(r.rating)}</div><p>“\${r.text}”</p><strong>– \${r.name}</strong></article>\`).join('')}</div>
+      <div class="home-section-title"><h2>Wat klanten zeggen</h2><a href="/about" data-link>Alle reviews <span aria-hidden="true">→</span></a></div>
+      <div class="home-review-grid">${reviews.map(homeReviewCard).join('')}</div>
     </div>
   </div>
-</section>\`}
+</section>`}
 
 function categoryPage(slug){const c=categories[slug];if(!c)return notFound();const list=products.filter(p=>p.category===slug);return `<section class="page-hero"><div class="shell"><div class="breadcrumbs"><a href="/" data-link>Home</a> / ${c.name}</div><h1>${c.name}</h1><p>${c.intro}</p></div></section><section class="section"><div class="shell category-layout"><aside class="filters"><h3>Filteren</h3><div class="filter-group"><strong>Prijs</strong><label><input type="checkbox" data-price="25"> Onder €25</label><label><input type="checkbox" data-price="50"> Onder €50</label><label><input type="checkbox" data-price="80"> Onder €80</label></div><div class="filter-group"><label for="sort"><strong>Sorteren</strong></label><select id="sort"><option value="featured">Aanbevolen</option><option value="low">Prijs laag-hoog</option><option value="high">Prijs hoog-laag</option><option value="rating">Best beoordeeld</option></select></div></aside><div><div class="category-toolbar"><strong>${c.name}</strong><span class="result-count" id="result-count">${list.length} producten</span></div><div class="product-grid" id="category-products">${list.map(productCard).join('')}</div></div></div></section>`}
 
