@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f3eb" />
+  <meta name="description" content="GlowNest — betaalbare sfeerverlichting, decoratie, textiel en kleine setup-accessoires voor een warm en comfortabel thuis." />
+  <title>GlowNest — Maak van je huis jouw warme nest</title>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#app">Ga naar inhoud</a>
+  <div class="announcement">Gratis verzending vanaf €49,95 <span>•</span> 30 dagen bedenktijd <span>•</span> Veilig afrekenen</div>
+  <header class="site-header" id="site-header">
+    <div class="header-main shell">
+      <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      <a class="brand" href="/" data-link aria-label="GlowNest homepage">GlowNest</a>
+      <form class="search-form" id="search-form" role="search">
+        <label class="sr-only" for="site-search">Zoeken</label>
+        <input id="site-search" autocomplete="off" placeholder="Zoek naar verlichting, decoratie en meer…" />
+        <button type="submit" aria-label="Zoeken">⌕</button>
+        <div class="search-suggestions" id="search-suggestions" hidden></div>
+      </form>
+      <div class="header-actions">
+        <button class="text-action" id="account-btn" aria-label="Mijn account">Mijn account <span aria-hidden="true">♡</span></button>
+        <button class="icon-btn wishlist-btn" id="wishlist-btn" aria-label="Favorieten">♡<span class="count-badge" id="wishlist-count">0</span></button>
+        <a class="cart-link" href="/cart" data-link aria-label="Winkelwagen">Winkelwagen <span aria-hidden="true">🛒</span><span class="count-badge" id="cart-count">0</span></a>
+      </div>
+    </div>
+    <nav class="desktop-nav shell" aria-label="Hoofdnavigatie">
+      <a href="/category/sfeerverlichting" data-link>Sfeerverlichting</a>
+      <a href="/category/woondecoratie" data-link>Woondecoratie</a>
+      <a href="/category/textiel-comfort" data-link>Textiel &amp; Comfort</a>
+      <a href="/category/geur-wellness" data-link>Geur &amp; Wellness</a>
+      <a href="/category/planten-potten" data-link>Planten &amp; Potten</a>
+      <a href="/about" data-link>Over GlowNest</a>
+      <a href="/service" data-link>Klantenservice</a>
+    </nav>
+  </header>
+
+  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-head"><span class="brand">GlowNest</span><button class="icon-btn" id="mobile-close" aria-label="Menu sluiten">×</button></div>
+    <nav aria-label="Mobiele navigatie">
+      <a href="/" data-link>Home</a><a href="/category/sfeerverlichting" data-link>Sfeerverlichting</a><a href="/category/woondecoratie" data-link>Woondecoratie</a><a href="/category/textiel-comfort" data-link>Textiel &amp; Comfort</a><a href="/category/geur-wellness" data-link>Geur &amp; Wellness</a><a href="/category/planten-potten" data-link>Planten &amp; Potten</a><a href="/about" data-link>Over GlowNest</a><a href="/service" data-link>Klantenservice</a>
+    </nav>
+  </aside>
+  <div class="overlay" id="overlay" hidden></div>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="newsletter-wrap">
+      <div class="shell newsletter">
+        <div><strong>Blijf op de hoogte</strong><p>Ontvang inspiratie, nieuwe producten en kleine acties.</p></div>
+        <form id="newsletter-form"><label class="sr-only" for="newsletter-email">E-mailadres</label><input id="newsletter-email" type="email" required placeholder="Jouw e-mailadres"><button class="btn btn-accent" type="submit">Aanmelden</button></form>
+      </div>
+    </div>
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="/" data-link>GlowNest</a><p>Maak van je huis jouw warme nest.</p><p class="muted small">Een schoolproject van Aaron van Dijck.</p></div>
+      <div><h3>Klantenservice</h3><a href="/service#faq" data-link>Veelgestelde vragen</a><a href="/service#shipping" data-link>Verzending &amp; retourneren</a><a href="/service#contact" data-link>Contact</a></div>
+      <div><h3>Informatie</h3><a href="/about" data-link>Over GlowNest</a><a href="/service#privacy" data-link>Privacy</a><a href="/service#terms" data-link>Voorwaarden</a></div>
+      <div><h3>Categorieën</h3><a href="/category/sfeerverlichting" data-link>Sfeerverlichting</a><a href="/category/woondecoratie" data-link>Woondecoratie</a><a href="/category/textiel-comfort" data-link>Textiel &amp; Comfort</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© 2026 GlowNest</span><span>Demo-webshop — geen echte betalingen</span></div>
+  </footer>
+
+  <dialog id="account-modal" class="modal">
+    <button class="modal-close" data-close-modal aria-label="Sluiten">×</button>
+    <h2>Mijn account</h2><p>Deze demo heeft geen echte accounts. Voor de webshopervaring kun je hier doen alsof je bent ingelogd.</p>
+    <div class="fake-account"><span class="avatar">A</span><div><strong>Demo klant</strong><span>demo@glownest.nl</span></div></div>
+    <button class="btn btn-dark" data-close-modal>Verder winkelen</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
